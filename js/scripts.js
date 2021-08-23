@@ -1,6 +1,28 @@
+/* Pokedex */
 
+let pokemonList [
+  { name: 'Gloom',
+    height: 2,07",
+    types: ['Grass', 'Poison']
+  },
 
-alert('Hello world');
+  { name: 'Parasect',
+    height: 3,03",
+    types: ['Bug', 'Grass']
+  },
 
-let favoriteFood = 'Nasi Goreng Babi';
-document.write(favoriteFood);
+  { name: 'Persian',
+    height: 3,03",
+    types: ['Normal']
+  },
+
+  { name: 'Primeape',
+    height: 3,03",
+    types: ['Fighting']
+  },
+
+  { name: 'Poliwrath',
+    height: 4,03",
+    types: ['Water', 'Fighting']
+  }
+];
