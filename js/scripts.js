@@ -34,6 +34,10 @@ let pokemonList [
 
 let text = ""; //initialize the text
 for (let i = 0; i < pokemonList.length; i++) {
+  document.write(pokemonList[i]);}
+
+
+  /*
     if (pokemonList.height < 1) {
         text = "A small pokemon!"; // text when the pokemonList.height is less than 1 m
     } else if (pokemonList.height > 1 && pokemonList.height <= 4){
@@ -44,7 +48,7 @@ for (let i = 0; i < pokemonList.length; i++) {
     document.write(
         pokemonList.name + "height: " + pokemonList.height +  " "  + text +. );
 }
-
+*/
 /*
 let poke = ();
 
