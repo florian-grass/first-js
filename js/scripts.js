@@ -1,6 +1,6 @@
 /* Pokedex */
 // Task 1.2 - Object Array
-let pokemonList [
+let pokemonList = [
   { name: 'Gloom',
     height: 2.07,
     types: ['Grass', 'Poison']
@@ -32,28 +32,18 @@ let pokemonList [
 ];
 
 
-let text = ""; //initialize the text
+
 for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i]);}
 
-
-  /*
-    if (pokemonList.height < 1) {
-        text = "A small pokemon!"; // text when the pokemonList.height is less than 1 m
-    } else if (pokemonList.height > 1 && pokemonList.height <= 4){
-        text = "Average sized pokemon."; // text when the pokemonList.height is between 1 and 4 m
-    } else {
-        text = "What a giant!"; // text when the pokemonList.height is higher than 4 m
+  if (pokemonList[i].height > 4) {
+      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " inch)" + " - Wow, that's big! , ");
+  } else {document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " inch)" + ", ");
       }
-    document.write(
-        pokemonList.name + "height: " + pokemonList.height +  " "  + text +. );
 }
-*/
+
 /*
 let poke = ();
 
-for (let i = 0; i = pokemonList.length; i++) {
-  document.write(pokemonList[i]);
   document.write(
       pokemonList.name + ' (height: ' + pokemonList.height + ') - ' + poke +''<br>');
 }
