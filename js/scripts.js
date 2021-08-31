@@ -32,7 +32,16 @@ let pokemonList = [
 ];
 
 
+pokemonList.forEach(function(pokemon) {
 
+
+  if (pokemon.height > 4) {
+      document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + " - Wow, that's big! , " + "<br >");
+  } else {document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + ", " + "<br >");
+      }
+})
+
+/*
 for (let i = 0; i < pokemonList.length; i++) {
 
   if (pokemonList[i].height > 4) {
@@ -41,10 +50,5 @@ for (let i = 0; i < pokemonList.length; i++) {
       }
 }
 
-/*
-let poke = ();
 
-  document.write(
-      pokemonList.name + ' (height: ' + pokemonList.height + ') - ' + poke +''<br>');
-}
 */
