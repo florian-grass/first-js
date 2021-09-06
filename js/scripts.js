@@ -1,7 +1,7 @@
 /* Pokedex */
 // Task 1.5 - Object Array
 
-//let pokemonRepository = function () {
+let pokemonRepository = function () {
   let pokemonList = [
     { name: 'Gloom',
       height: 2.07,
@@ -33,50 +33,28 @@
     }
   ];
 
-// returning pokemonList first try
-/*
-  return {
-    pokemonRepository.getAll(){
-      return pokemonList;
-    }
-    pokemonRepository.add(item) {
-      return pokemonList;
-    },
-  }
-*/
-// returning pokemonList second try
-/*
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
+
   function getAll() {
     return pokemonList;
   }
+
   return {
     add: add,
     getAll: getAll
   };
-*/
+
+}();
+
+let pokemonList = pokemonRepository.getAll();
 
 
   pokemonList.forEach(function(pokemon) {
-
 
     if (pokemon.height > 4) {
         document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + " - Wow, that's big! , " + "<br >");
     } else {document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + ", " + "<br >");
         }
-  })
-  
-//})();
-/*
-for (let i = 0; i < pokemonList.length; i++) {
-
-  if (pokemonList[i].height > 4) {
-      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " inch)" + " - Wow, that's big! , " + "<br >");
-  } else {document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " inch)" + ", " + "<br >");
-      }
-}
-
-
-*/
+  });
