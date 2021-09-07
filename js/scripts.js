@@ -1,5 +1,4 @@
 /* Pokedex */
-// Task 1.5 - Object Array
 
 let pokemonRepository = function () {
   let pokemonList = [
@@ -41,20 +40,53 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
+  // Functions Add Item and Button to Pokedex
+
+  function addListItem(pokemon){
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
+    function showDetails(pokemon) {
+      console.log(pokemon);
+    }
+
+  // Event Listener on click of a button
+    button.addEventListener('click', function(event) {
+      showDetails(pokemon);
+    })
+  }
+
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 
 }();
 
+pokemonRepository.add({
+  name: "Pikachu", height: 0.3, types: ['electric']
+});
+
+pokemonRepository.getAll().forEach(function (pokemon){
+  pokemonRepository.addListItem(pokemon);
+});
+
+
+
+/*
 let pokemonList = pokemonRepository.getAll();
 
 
   pokemonList.forEach(function(pokemon) {
 
     if (pokemon.height > 4) {
-        document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + " - Wow, that's big! , " + "<br >");
-    } else {document.write(pokemon.name + " (height: " + pokemon.height + " inch)" + ", " + "<br >");
+        document.write(pokemon.name + "<br >" + "height: " + pokemon.height + " inch" + " - Wow, that's big! , " + "<br >" + pokemon.types + "<br >");
+    } else {document.write(pokemon.name +  "<br >" + "height: " + pokemon.height + " inch" + "<br >" + pokemon.types + ", " + "<br >");
         }
   });
+*/
