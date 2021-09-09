@@ -1,39 +1,20 @@
 /* Pokedex */
 
 let pokemonRepository = function () {
-  let pokemonList = [
-    { name: 'Gloom',
-      height: 2.07,
-      types: ['Grass', 'Poison']
-    },
+  let pokemonList = [];
+  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    { name: 'Parasect',
-      height: 3.03,
-      types: ['Bug', 'Grass']
-    },
-
-    { name: 'Persian',
-      height: 3.03,
-      types: ['Normal']
-    },
-
-    { name: 'Primeape',
-      height: 3.03,
-      types: ['Fighting']
-    },
-
-    { name: 'Poliwrath',
-      height: 4.03,
-      types: ['Water', 'Fighting']
-    },
-    { name: 'Bulbasaur',
-      height: 0.7,
-      types: ['Grass', 'Poison']
-    }
-  ];
 
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon
+      // "detailsURL" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
   }
 
   function getAll() {
@@ -53,28 +34,74 @@ let pokemonRepository = function () {
     function showDetails(pokemon) {
       console.log(pokemon);
     }
-
   // Event Listener on click of a button
     button.addEventListener('click', function(event) {
       showDetails(pokemon);
+    });
+  }
+
+
+
+  // Load list & Promise with JSON conversion
+  function loadList() {
+    return fetch(apiURL).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsURL: item.apiURL
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
     })
   }
+
+  // load Details with detailsURL property
+  function loadDetails(item) {
+    let url = item.detailsURL;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details){
+      // Now we add the details to the Item
+      item.imageURL = details.sprites.font_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+
+  function showDetails(item) {
+    loadDetails(item).then(function () {
+      console.log(item);
+    });
+  }
+
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
-
 }();
 
-pokemonRepository.add({
-  name: "Pikachu", height: 0.3, types: ['electric']
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function (pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
 });
 
-pokemonRepository.getAll().forEach(function (pokemon){
-  pokemonRepository.addListItem(pokemon);
-});
+
+
+
 
 
 
