@@ -31,9 +31,7 @@ let pokemonRepository = function () {
     button.classList.add("button-class");
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
-    function showDetails(pokemon) {
-      console.log(pokemon);
-    }
+
   // Event Listener on click of a button
     button.addEventListener('click', function(event) {
       showDetails(pokemon);
@@ -50,7 +48,7 @@ let pokemonRepository = function () {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsURL: item.apiURL
+          detailsURL: item.url
         };
         add(pokemon);
         console.log(pokemon);
