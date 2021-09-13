@@ -143,10 +143,10 @@ let pokemonRepository = function () {
     closeButtonElement.addEventListener('click', hideModal);
 
     // assign elements for modal text
-    let nameElement = document.createElement('p');
-    nameElement.innerText = pokemon.name;
+    let nameElement = document.createElement('h3');
+    nameElement.innerText = pokemon.name.toUpperCase();
     let heightElement = document.createElement('p');
-    nameElement.innerText = pokemon.height;  // inch
+    heightElement.innerText = 'Height: ' + pokemon.height + ' inch';  // inch
     // let typesElement = [];
     // nameElement.innerText = pokemon.types;
 
