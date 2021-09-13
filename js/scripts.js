@@ -101,7 +101,7 @@ let pokemonRepository = function () {
       return response.json();
     }).then(function (details){
       // Now we add the details to the Item
-      item.imageURL = details.sprites.font_default;
+      item.imageURL = details.sprites.front_default;
       item.height = details.height;
       item.type = details.types;
       item.ability = details.abilities;
@@ -128,7 +128,7 @@ let pokemonRepository = function () {
   function showModal(pokemon) {
 
     // clear all existing modal content
-    modal.Container.innerHTML = '';
+    modalContainer.innerHTML = '';
 
     // creating the modal
     let modal = document.createElement('div');
@@ -143,21 +143,22 @@ let pokemonRepository = function () {
     closeButtonElement.addEventListener('click', hideModal);
 
     // assign elements for modal text
-    let nameElement = document.createElement('h3');
+    let nameElement = document.createElement('p');
     nameElement.innerText = pokemon.name;
-    let heightElement = pokemon.height;  // inch
-    let typesElement = [];
-    let abilitiesElement = [];
+    let heightElement = document.createElement('p');
+    nameElement.innerText = pokemon.height;  // inch
+    // let typesElement = [];
+    // nameElement.innerText = pokemon.types;
 
     // adding pokemon front image
     let imageElement = document.createElement('img');
-    imageElement.setAttribute('src', pokemon.image.URL);
+    imageElement.setAttribute('src', pokemon.imageURL);
     imageElement.setAttribute('alt', 'Front view of' + pokemon.name);
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(nameElement);
     modal.appendChild(heightElement);
-    modal.appendChild(typesElement);
+    // modal.appendChild(typesElement);
     modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
 
