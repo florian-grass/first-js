@@ -90,8 +90,8 @@ let pokemonRepository = (function () {
       item.imageURLBack = details.sprites.back_default;
       item.height = details.height;
       item.weight = details.weight;
-      item.type = details.types;
-      item.ability = details.abilities;
+      // item.types = details.type;
+      // item.abilities = details.abilities;
     }).catch(function (e) {
       console.error(e);
     });
@@ -128,24 +128,24 @@ let pokemonRepository = (function () {
     imageElementBack.attr("src", pokemon.imageURLBack);
 
     // Creating element for height in modal content
-    let heightElement = ("<p>" + "Height : " + pokemon.height + " inch" + "</p>");
+    let heightElement = $("<p>" + "Height : " + pokemon.height + " inch" + "</p>");
 
     // creating element for  weight in modal content
     let weightElement = $("<p>" + "Weight : " + pokemon.weight + " gr" + "</p>");
 
     // creating types element for modal content
-    let typesElement = $("<p>" + "Type : " + pokemon.types + "</p>");
+    // let typesElement = $("<p>" + "Type : " + pokemon.types + "</p>");
 
     // creating abilities element for modal content
-    let abilitiesElement = $("<p>" + "Abilities : " + pokemon.abilities + "</p>");
+    // let abilitiesElement = $("<p>" + "Abilities : " + pokemon.abilities + "</p>");
 
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
     modalBody.append(imageElementBack);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
-    modalBody.append(typesElement);
-    modalBody.append(abilitiesElement);
+    // modalBody.append(typesElement);
+    // modalBody.append(abilitiesElement);
 
   }
   // Modal - end
