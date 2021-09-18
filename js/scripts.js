@@ -2,15 +2,15 @@
 
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiURL = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   // add a single pokemon to the list
   function add(pokemon) {
     // make sure the new pokemon has these properties
     if (
       typeof pokemon === "object" &&
-      "name" in pokemon
-      // "detailsURL" in pokemon
+      "name" in pokemon &&
+      "detailsURL" in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -53,36 +53,19 @@ let pokemonRepository = (function () {
     pokemonList.appendChild(listItem);
 
   // Event Listener on click of a button
-    pokemonButton.addEventListener('click', function(event) {
+    pokemonButton.addEventListener("click", function (event) {
       showDetails(pokemon);
     });
-  }
-
-  // activating the loading image
-  function showLoadingImage() {
-    let loading = document.querySelector('#loading');
-    window.addEventListener('load', function() {
-      loading.style.visibility = 'visible';
-    });
-  }
-
-  // turn the visibility of loading image back to hidden, add 0.5sec before hidden
-  function hideLoadingImage() {
-    let loading = document.querySelector('#loading');
-    setTimeout(function() {
-      loading.style.visibility = 'hidden';
-    }, 500);
   }
 
 
 
   // Load list & Promise with JSON conversion
   function loadList() {
-    showLoadingImage();
-    return fetch(apiURL).then(function (response) {
-      return response.json();   // this returns the promise
+    return fetch(apiURL)
+      .then(function (response) {
+        return response.json();   // this returns the promise
     }).then(function (json) {
-      hideLoadingImage();
       json.results.forEach(function (item) {
         // get pokemon's name and details url when resolved
         let pokemon = {
@@ -92,17 +75,14 @@ let pokemonRepository = (function () {
         add(pokemon);
       });
     }).catch(function (e) {
-      hideLoadingImage();
       console.error(e);
     });
   }
 
   // load Details for each pokemon with detailsURL property
   function loadDetails(item) {
-    showLoadingImage();
     let url = item.detailsURL;
     return fetch(url).then(function (response) {
-      hideLoadingImage();
       return response.json();
     }).then(function (details){
       // Now we add the details to the Item
@@ -113,7 +93,6 @@ let pokemonRepository = (function () {
       item.type = details.types;
       item.ability = details.abilities;
     }).catch(function (e) {
-      hideLoadingImage();
       console.error(e);
     });
   }
@@ -167,7 +146,7 @@ let pokemonRepository = (function () {
     modalBody.append(weightElement);
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
-    }
+
   }
   // Modal - end
   // =======================
@@ -179,10 +158,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    // showLoadingImage: showLoadingImage,
-    // hideLoadingImage:hideLoadingImage,
     showModal: showModal,
-    // hideModal: hideModal
   };
 })();
 
