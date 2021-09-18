@@ -84,4 +84,9 @@ li {
   width: 150px;
   background-color: #28449E;
   color: #B6C4F0;
+  border-style: none;
+}
+
+.navbar {
+  color: #B6C4F0;
 }
