@@ -1,6 +1,3 @@
-# first-js
-
-
 
 # pokedex - a pokemon application
 
