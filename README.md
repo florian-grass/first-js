@@ -3,17 +3,15 @@
 
 
 # pokedex - a pokemon application
-------------------------------------
 
 ## Application description
-----------------------------
 * this is a simple application that allows a user to view various Pokémon and their specific details.
 * there is also a search function available to quickly find a specific Pokémon name.
 
 ### The application was build using
 HTML, JavaScript, CSS
 
-![HTML, JavaScript, CSS](https://github.com/florian-grass/first-js/pics/code-icons.png)
+![HTML, JavaScript, CSS](https://github.com/florian-grass/first-js/pics/code-icons.jpg)
 
 ** data is loaded from an external API ( "https://pokeapi.co/api/v2) **
 
