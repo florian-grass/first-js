@@ -1,0 +1,79 @@
+
+body {
+  font-family: Lato, sans-serif;
+  background-color: #6179C7;
+  font-size: 1.2rem;
+  padding: 5%;
+}
+
+.button-class {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  border-radius: 10px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 4px 2px;
+  width: 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+
+}
+
+/* Styling for modal container - start  */
+#modal-container {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* to show it above other content */
+  z-index: 999;
+
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto;
+
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+#modal-container.is-visible {
+  display: block;
+}
+
+#modal-container {
+  display: none;
+}
+
+.navbar {
+  float: right;
+  width: 350px;
+  margin-top: 25px;
+    color: #B6C4F0;
+}
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.pokemon-button {
+  margin: 10px;
+  width: 150px;
+  background-color: #28449E;
+  color: #B6C4F0;
+  border-style: none;
+}
