@@ -13,7 +13,7 @@
 ### The application was build using
 HTML, JavaScript, CSS
 
-![HTML, JavaScript, CSS](http:///github.com/florian-grass/first-js/pics/code-icons.png)
+![HTML, JavaScript, CSS](https://github.com/florian-grass/first-js/pics/code-icons.png)
 
 ** data is loaded from an external API ( "https://pokeapi.co/api/v2) **
 
@@ -30,4 +30,4 @@ HTML, JavaScript, CSS
 Live Demo link
 
 ### Author
-GitHub: @florian-grass
+GitHub: [@florian-grass](https://github.com/florian-grass)
