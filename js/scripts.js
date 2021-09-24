@@ -2,7 +2,7 @@
 
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20';
 
   // add a single pokemon to the list
   function add(pokemon) {
@@ -127,10 +127,10 @@ let pokemonRepository = (function () {
     imageElementBack.attr('src', pokemon.imageURLBack);
 
     // Creating element for height in modal content
-    let heightElement = $('<p>' + 'Height : ' + pokemon.height + ' inch' + '</p>');
+    let heightElement = $('<p>' + 'Height : ' + pokemon.height + ' meter' + '</p>');
 
     // creating element for  weight in modal content
-    let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + ' gr' + '</p>');
+    let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + ' Kilogram' + '</p>');
 
     // creating types element for modal content
     // let typesElement = $("<p>" + "Type : " + pokemon.types + "</p>");
