@@ -2,7 +2,7 @@
 
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150%22';
 
   // add a single pokemon to the list
   function add(pokemon) {
@@ -18,12 +18,13 @@ let pokemonRepository = (function () {
     }
   }
 
-  // return all pokemon from pokemonList
+  // return the pokemonList array
   function getAll() {
     return pokemonList;
   }
 
-  // Functions Add Item and Button to Pokedex
+  // Functions addListItem adds a list element to the unordered list already present inside the DOM
+  // The list item will contain a button which text is the pokemon name passed as first argument
   function addListItem(pokemon){
 
     // selecting the unordered list
@@ -69,7 +70,7 @@ let pokemonRepository = (function () {
       json.results.forEach(function (item) {
         // get pokemon's name and details url when resolved
         let pokemon = {
-          name: item.name,
+          name: item.name.charAt(0).toUpperCase() + item.name.slice(1),
           detailsURL: item.url
         };
         add(pokemon);
@@ -121,16 +122,16 @@ let pokemonRepository = (function () {
     let nameElement = $('<h1>' +  pokemon.name + '</h1>');
 
     // creating pokemon images
-    let imageElementFront = $('<img class="modal-image" style="width:50%">');
-    imageElementFront.attr('src', pokemon.imageURLFront);
-    let imageElementBack = $('<img class="modal-image" style="width:50%">');
+    let imageElementFront = $('<img class="modal-image" style="width:25%">');
+    imageElementFront.attr('src', pokemon.imageURLFront); 
+    let imageElementBack = $('<img class="modal-image" style="width:25%">');
     imageElementBack.attr('src', pokemon.imageURLBack);
 
     // Creating element for height in modal content
-    let heightElement = $('<p>' + 'Height : ' + pokemon.height + ' inch' + '</p>');
+    let heightElement = $('<p>' + 'Height : ' + pokemon.height + ' Meter' + '</p>');
 
     // creating element for  weight in modal content
-    let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + ' gr' + '</p>');
+    let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + ' Kg' + '</p>');
 
     // creating types element for modal content
     // let typesElement = $("<p>" + "Type : " + pokemon.types + "</p>");
