@@ -5,10 +5,8 @@
 * this is a simple application that allows a user to view various Pokémon and their specific details.
 * there is also a search function available to quickly find a specific Pokémon name.
 
-### The application was build using
-HTML, JavaScript, CSS
-
-![HTML, JavaScript, CSS](https://github.com/florian-grass/first-js/pics/code-icons.jpg)
+### The application was build using and implementing
+HTML, JavaScript, CSS, Boostrap and jQuery
 
 ** data is loaded from an external API ( "https://pokeapi.co/api/v2) **
 
@@ -22,7 +20,7 @@ HTML, JavaScript, CSS
 * Physically tested in Chrome, Opera, Firefox and Microsoft Edge
 
 ### Live Demo
-Live Demo link
+Check out the [Live Demo](https://florian-grass.github.io/first-js/)
 
 ### Author
 GitHub: [@florian-grass](https://github.com/florian-grass)
